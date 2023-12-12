@@ -11,72 +11,80 @@
 <body>
     <div>
         <h1 style="display: flex; justify-content: center;">List of Blogs</h1>
-        <div style="display: flex; gap: 10px; flex-direction: column;">
-            <div style="border:solid 2px black; padding:15px; border-radius: 8px;">
-                <h2 id="title"></h2>
-                <p id="content"></p>
-                <p id="category"> </p>
-                <p id="tags"> </p>
-                <p id="date"></p>
-                <p id="author"> </p>
-            </div>
-            <div style="border:solid 2px black; padding:15px; border-radius: 8px;">
-                <h2 id="title1"></h2>
-                <p id="content1"></p>
-                <p id="category1"> </p>
-                <p id="tags1"> </p>
-                <p id="date1"></p>
-                <p id="author1"> </p>
-            </div>
-        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const blogs = [
+                {
+                    "title": 'Blog 1',
+                    "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    "category": 'Category 1',
+                    "tags": ['Tag 1', 'Tag 2'],
+                    "date": '2020-01-01',
+                    "author": 'Author 1',
+                },
+                {
+                    "title": 'Blog 2',
+                    "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    "category": 'Category 2',
+                    "tags": ['Tag 1', 'Tag 2'],
+                    "date": '2020-01-01',
+                    "author": 'Author 2',
+                },
+                {
+                    "title": 'Blog 3',
+                    "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    "category": 'Category 3',
+                    "tags": ['Tag 1', 'Tag 2'],
+                    "date": '2020-01-01',
+                    "author": 'Author 3',
+                },
+                {
+                    "title": 'Blog 4',
+                    "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+                    "category": 'Category 3',
+                    "tags": ['Tag 1', 'Tag 2'],
+                    "date": '2020-01-01',
+                    "author": 'Author 3',
+                }
+            ];
+
+            const blogContainer = document.createElement('div');
+
+            blogs.forEach(blog => {
+                const blogDiv = document.createElement('div');
+                const title = document.createElement('h1');
+                const content = document.createElement('p');
+                const category = document.createElement('p');
+                const tags = document.createElement('p');
+                const date = document.createElement('p');
+                const author = document.createElement('p');
+
+                title.innerHTML = blog.title;
+                content.innerHTML = blog.content;
+                category.innerHTML = blog.category;
+                tags.innerHTML = blog.tags.join(', '); // Join tags into a string
+                date.innerHTML = blog.date;
+                author.innerHTML = blog.author;
+                
+                // Append elements to blogDiv
+                blogDiv.appendChild(title);
+                blogDiv.appendChild(content);
+                blogDiv.appendChild(category);
+                blogDiv.appendChild(tags);
+                blogDiv.appendChild(date);
+                blogDiv.appendChild(author);
+
+                // Append blogDiv to blogContainer
+                blogContainer.appendChild(blogDiv);
+            });
+
+            // Append blogContainer to the body
+            document.body.appendChild(blogContainer);
+        });
+    </script>
+
 </body>
-
-<script>
-    const blogs = [
-        {
-            "title": 'Blog 1',
-            "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            "category": 'Category 1',
-            "tags": ['Tag 1', 'Tag 2'],
-            "date": '2020-01-01',
-            "author": 'Author 1',
-
-        },
-        {
-            "title": 'Blog 2',
-            "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            "category": 'Category 2',
-            "tags": ['Tag 1', 'Tag 2'],
-            "date": '2020-01-01',
-            "author": 'Author 2',
-
-        },
-        {
-            "title": 'Blog 2',
-            "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            "category": 'Category 2',
-            "tags": ['Tag 1', 'Tag 2'],
-            "date": '2020-01-01',
-            "author": 'Author 2',
-
-        }
-    ]
-
-    document.getElementById('title').innerHTML = blogs[0].title;
-    document.getElementById('content').innerHTML = blogs[0].content;
-    document.getElementById('category').innerHTML = blogs[0].category;
-    document.getElementById('tags').innerHTML = blogs[0].tags;
-    document.getElementById('author').innerHTML = blogs[0].author;
-    document.getElementById('date').innerHTML = blogs[0].date;
-
-
-    document.getElementById('title1').innerHTML = blogs[1].title;
-    document.getElementById('content1').innerHTML = blogs[1].content;
-    document.getElementById('category1').innerHTML = blogs[1].category;
-    document.getElementById('tags1').innerHTML = blogs[1].tags;
-    document.getElementById('author1').innerHTML = blogs[1].author;
-    document.getElementById('date1').innerHTML = blogs[1].date;
-</script>
 
 </html>
