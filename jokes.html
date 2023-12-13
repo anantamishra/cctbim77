@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokes</title>
+</head>
+
+<body>
+    <div>
+        <h1 style="display: flex; justify-content: center;">List of jokes</h1>
+        <p>Joke ID</p>
+        <p>Joke here</p>
+    </div>
+
+    <script>
+        async function getJokes() {
+            const url = 'https://humor-jokes-and-memes.p.rapidapi.com/jokes/random?max-length=200&include-tags=one_liner&min-rating=7&exclude-tags=nsfw&keywords=rocket';
+            const options = {
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'ade39a2102mshf1e18d449d11096p14fc9ejsn236b4440abc7',
+                    'X-RapidAPI-Host': 'humor-jokes-and-memes.p.rapidapi.com'
+                }
+            };
+
+            try {
+                const response = await fetch(url, options);
+                const result = await response.text();
+                console.log(result);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        getJokes();
+    </script>
+
+</body>
+
+</html>
