@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <script src="./script.js"></script> -->
 </head>
 
 <body>
@@ -20,7 +19,7 @@
                     "title": 'Blog 1',
                     "content": 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
                     "category": 'Category 1',
-                    "tags": ['Tag 1', 'Tag 2'],
+                    "tags": ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4', 'Tag 5'],
                     "date": '2020-01-01',
                     "author": 'Author 1',
                 },
@@ -57,17 +56,23 @@
                 const title = document.createElement('h1');
                 const content = document.createElement('p');
                 const category = document.createElement('p');
-                const tags = document.createElement('p');
+                const tags = document.createElement('ul');
                 const date = document.createElement('p');
                 const author = document.createElement('p');
 
                 title.innerHTML = blog.title;
                 content.innerHTML = blog.content;
-                category.innerHTML = blog.category;
-                tags.innerHTML = blog.tags.join(', '); // Join tags into a string
-                date.innerHTML = blog.date;
-                author.innerHTML = blog.author;
-                
+                category.innerHTML = `Category: ${blog.category}`;
+                date.innerHTML = `Date: ${blog.date}`;
+                author.innerHTML = `Author: ${blog.author}`;
+
+                // Iterate through tags and create li elements
+                blog.tags.forEach(tag => {
+                    const tagItem = document.createElement('li');
+                    tagItem.innerHTML = tag;
+                    tags.appendChild(tagItem);
+                });
+
                 // Append elements to blogDiv
                 blogDiv.appendChild(title);
                 blogDiv.appendChild(content);
