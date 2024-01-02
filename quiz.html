@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    document.addEventListener('DOMContentLoaded', async function () {
+        const url = "https://opentdb.com/api.php?amount=10"
+        const response = await fetch(url);
+        const result = await response.json();
+        const finalResult = result.results;
+        console.log(finalResult[0]);
+
+
+        const quizContainer = document.createElement('div');
+
+
+        finalResult.forEach(quiz => {
+            const quizDiv = document.createElement('div');
+            const question = document.createElement('h1');
+            const type = document.createElement('p');
+            const difficulty = document.createElement('p');
+            const category = document.createElement('p');
+
+
+            question.innerHTML = `Question: ${quiz.question}`;
+            type.innerHTML = `Question Content: ${quiz.type}`;
+            category.innerHTML = `Category: ${quiz.category}`;
+            difficulty.innerHTML = `Difficulty: ${quiz.difficulty}`;
+
+
+            // Append elements to blogDiv
+            quizDiv.appendChild(question).classList.add('quiz-title');
+            quizDiv.appendChild(type).classList.add('quiz-content');
+            quizDiv.appendChild(category).classList.add('quiz-category');
+            quizDiv.appendChild(difficulty).classList.add('quiz-difficulty');
+
+
+            // Append blogDiv to blogContainer
+            quizContainer.appendChild(quizDiv).classList.add('quiz-div');
+        });
+
+        // Append blogContainer to the body
+        document.body.appendChild(quizContainer);
+
+    });
+
+</script>
+
+</html>
